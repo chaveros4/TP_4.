@@ -1,0 +1,53 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void cargarVector(vector<int>& v)
+{
+    for (int i = 0; i < 5; i++) {
+        cout << "Ingrese el elemento " << i + 1 << ": ";
+        cin >> v[i];
+    }
+}
+
+void sumarVectores(vector<int> v1, vector<int> v2, vector<int>& v3)
+{
+    for (int i = 0; i < 5; i++) {
+        v3[i] = v1[i] + v2[i];
+    }
+}
+
+void mostrarVector(vector<int> v)
+{
+    for (int x : v) {
+        cout << x << " ";
+    }
+
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> v1(5);
+    vector<int> v2(5);
+    vector<int> v3(5);
+
+    cout << "Carga del primer vector:" << endl;
+    cargarVector(v1);
+
+    cout << "Carga del segundo vector:" << endl;
+    cargarVector(v2);
+
+    sumarVectores(v1, v2, v3);
+
+    cout << "Primer vector: ";
+    mostrarVector(v1);
+
+    cout << "Segundo vector: ";
+    mostrarVector(v2);
+
+    cout << "Tercer vector (suma): ";
+    mostrarVector(v3);
+
+    return 0;
+}
