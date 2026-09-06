@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void cargarVector(vector<int>& v)
+{
+    for (int i = 0; i < 10; i++) {
+        cout << "Ingrese el elemento " << i + 1 << ": ";
+        cin >> v[i];
+    }
+}
+
+bool estaOrdenado(vector<int> v)
+{
+    for (int i = 0; i < 9; i++) {
+        if (v[i] > v[i + 1]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main()
+{
+    vector<int> v(10);
+
+    cargarVector(v);
+
+    if (estaOrdenado(v)) {
+        cout << "El vector esta ordenado de menor a mayor." << endl;
+    } else {
+        cout << "El vector no esta ordenado de menor a mayor." << endl;
+    }
+
+    return 0;
+}
