@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+void cargarVector(float alturas[5])
+{
+    for (int i = 0; i < 5; i++) {
+        cout << "Ingrese la altura de la persona " << i + 1 << ": ";
+        cin >> alturas[i];
+    }
+}
+
+float calcularPromedio(float alturas[5])
+{
+    float suma = 0;
+
+    for (int i = 0; i < 5; i++) {
+        suma += alturas[i];
+    }
+
+    return suma / 5;
+}
+
+void contarAlturas(float alturas[5], float promedio)
+{
+    int mayores = 0;
+    int menores = 0;
+
+    for (int i = 0; i < 5; i++) {
+        if (alturas[i] > promedio) {
+            mayores++;
+        } else if (alturas[i] < promedio) {
+            menores++;
+        }
+    }
+
+    cout << "Personas mas altas que el promedio: " << mayores << endl;
+    cout << "Personas mas bajas que el promedio: " << menores << endl;
+}
+
+int main()
+{
+    float alturas[5];
+
+    cargarVector(alturas);
+
+    float promedio = calcularPromedio(alturas);
+
+    cout << "Promedio de alturas: " << promedio << endl;
+
+    contarAlturas(alturas, promedio);
+
+    return 0;
+}
